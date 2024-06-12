@@ -1,0 +1,3 @@
+[submodule "src/lib/libft"]
+	path = src/lib/libft
+	url = git@github.com:zenix-s/libft.git
