@@ -4,36 +4,38 @@
 
 int main(void) {
   int i;
-  t_stack a;
-  t_stack b;
+  t_stack *a;
+  t_stack *b;
 
-  a.id = 'a';
-  b.id = 'b';
+  a = (t_stack *)malloc(sizeof(t_stack));
+  b = (t_stack *)malloc(sizeof(t_stack));
 
-  a.size = 5;
-  a.stack = (int *)malloc(a.size * sizeof(int));
+  a->id = 'a';
+  b->id = 'b';
+
+  a->size = 5;
+  a->stack = (int *)malloc(a->size * sizeof(int));
   i = 0;
-  while(i < a.size)
+  while(i < a->size)
   {
-    a.stack[i] = i;
+    a->stack[i] = i;
     i++;
   }
 
 
-  b.size = 0;
-  b.stack = NULL;
+  b->size = 0;
+  b->stack = NULL;
 
   ft_printf("Stack A:\n");
-  print_stack(&a);
-
-  ft_printf("Stack B:\n");
-  print_stack(&b);
+  print_stack(a);
 
   ft_printf("-------------\n");
 
-  sa(&a);
-  sb(&b);
+  sa(a);
   ft_printf("Stack A:\n");
-  print_stack(&a);
+  print_stack(a);
+
+  free_stack(a);
+  free_stack(b);
   return 0;
 }
