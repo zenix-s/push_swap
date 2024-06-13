@@ -1,41 +1,27 @@
 #include "push_swap.h"
-#include "lib/libft/libft.h"
 
+int main(int argc, char **argv) {
 
-int main(void) {
-  int i;
-  t_stack *a;
-  t_stack *b;
+  t_stacks *stacks;
 
-  a = (t_stack *)malloc(sizeof(t_stack));
-  b = (t_stack *)malloc(sizeof(t_stack));
+  stacks = (t_stacks *)malloc(sizeof(t_stacks));
 
-  a->id = 'a';
-  b->id = 'b';
+  stacks->stack_a = init_stack();
+  stacks->stack_b = init_stack();
 
-  a->size = 5;
-  a->stack = (int *)malloc(a->size * sizeof(int));
-  i = 0;
-  while(i < a->size)
-  {
-    a->stack[i] = i;
-    i++;
-  }
-
-
-  b->size = 0;
-  b->stack = NULL;
+  load_stack(stacks, argc, argv);
 
   ft_printf("Stack A:\n");
-  print_stack(a);
+  print_stack(stacks->stack_a);
 
   ft_printf("-------------\n");
 
-  sa(a);
+  sa(stacks->stack_a);
   ft_printf("Stack A:\n");
-  print_stack(a);
+  print_stack(stacks->stack_a);
 
-  free_stack(a);
-  free_stack(b);
+  free_stack(stacks->stack_a);
+  free_stack(stacks->stack_b);
+  free(stacks);
   return 0;
 }
