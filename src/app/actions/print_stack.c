@@ -1,4 +1,9 @@
 #include "../../push_swap.h"
+
+/**
+ * Prints the stack.
+ * @param stack Pointer to the stack.
+ */
 void print_stack(t_stack *stack) {
   int size;
 

@@ -1,6 +1,7 @@
 #include "push_swap.h"
 #include "lib/libft/libft.h"
 
+
 int main(void) {
   int i;
   t_stack a;
@@ -30,8 +31,8 @@ int main(void) {
 
   ft_printf("-------------\n");
 
-  swap_a(&a);
-  swap_b(&b);
+  sa(&a);
+  sb(&b);
   ft_printf("Stack A:\n");
   print_stack(&a);
   return 0;
