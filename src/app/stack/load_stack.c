@@ -1,60 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/14 17:35:31 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/14 17:53:36 by serferna         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
-typedef struct s_result {
-  int result;
-  t_bool error;
-} t_result;
+t_bool is_invalid_arg(char *str) {
+  int i;
 
-t_result process_item(char *str) {
+  i = 0;
+  while (str[i]) {
+    if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+' && str[i] != ' ')
+      return (TRUE);
+    i++;
+  }
+  return (FALSE);
+}
+
+t_bool process_item(char *str, int *item) {
   int sign;
-  t_result result;
+  long long value;
 
-  result.result = 0;
-  result.error = 0;
+  value = 0;
   sign = 1;
-  while (*str == ' ' || (*str >= 9 && *str <= 13))
-    str++;
   if (*str == '-' || *str == '+') {
+    if (ft_strlen(str) == 1)
+      return (FALSE);
     if (*str == '-')
       sign = -1;
     str++;
   }
   while (*str >= '0' && *str <= '9') {
-    result.result = (result.result * 10) + (*str - '0');
+    value = (value * 10) + (*str - '0');
+    if (sign == 1 && value > INT_MAX)
+      return (FALSE);
+    if (sign == -1 && value > (long long)INT_MAX + 1)
+      return (FALSE);
     str++;
   }
   if (*str != '\0')
-    result.error = TRUE;
-  result.result *= sign;
-  return result;
+    return (FALSE);
+  value *= sign;
+  *item = (int)value;
+  return (TRUE);
 }
 
 void load_stack(t_stacks *stacks, int argc, char **argv) {
-  t_result item;
+  int item;
+  char **chunk;
+  int chunk_size;
 
-
+  (void)item;
+  if (argc < 2)
+    error(stacks);
   while (--argc > 0) {
-    item = process_item(argv[argc]);
-    if (item.error)
-      error(stacks->stack_a, stacks->stack_b);
-    push(stacks->stack_a, item.result);
+    if (is_invalid_arg(argv[argc]))
+      error(stacks);
+    chunk = ft_split(argv[argc], ' ');
+    chunk_size = 0;
+    while (chunk[chunk_size])
+      chunk_size++;
+    while (--chunk_size >= 0) {
+      if (!process_item(chunk[chunk_size], &item))
+        error(stacks);
+      if (find_dup(stacks->stack_a, item))
+        error(stacks);
+      push_stack(stacks->stack_a, item);
+    }
   }
 }
-  // int sign;
-  // size_t result;
-  // size_t i;
-  //
-  // result = 0;
-  // sign = 1;
-  // i = 0;
-  // while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-  //   i++;
-  // if (str[i] == '-')
-  //   sign = -1;
-  // if (str[i] == '-' || str[i] == '+')
-  //   i++;
-  // while (ft_isdigit(str[i]) != 0) {
-  //   result = (result * 10) + (str[i] - '0');
-  //   i++;
-  // }
-  // return (result * sign);

@@ -1,8 +1,19 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sb.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/14 17:35:26 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/14 17:35:42 by serferna         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void sb(t_stack *stack_b) {
-  swap(stack_b);
-  ft_printf("sb\n");
+void	sb(t_stacks *stacks)
+{
+	swap_stack(stacks->stack_b);
+	ft_printf("sb\n");
 }
