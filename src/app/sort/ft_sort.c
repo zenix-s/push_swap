@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:30:42 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:27:09 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:35:04 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	ft_sort(t_stacks *stacks)
 		sort_five(stacks);
 	operation_return(stacks);
 	top_item(stacks, 'a', find_min(stacks->stack_a));
-	free(data->sorted);
 	free(data);
 	return (0);
 }

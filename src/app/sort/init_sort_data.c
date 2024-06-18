@@ -12,24 +12,34 @@
 
 #include "../../push_swap.h"
 
+t_item	select_pivot(t_item *sorted, int size)
+{
+	t_item	pivot;
+
+	if (size % 2 == 0)
+		pivot = sorted[size / 2];
+	else
+		pivot = sorted[(size - 1) / 2];
+	return (pivot);
+}
+
 t_sort_data	*init_sort_data(t_stacks *stacks)
 {
 	t_sort_data	*data;
+	t_item		*sorted;
 
 	data = malloc(sizeof(t_sort_data));
 	if (!data)
 		error(stacks);
-	data->min = find_min(stacks->stack_a);
-	data->sorted = bubble_sort_init_stack(stacks);
+	sorted = bubble_sort_init_stack(stacks);
 	data->size = stacks->stack_a->size;
-	data->max_1 = data->sorted[stacks->stack_a->size - 1];
-	data->max_2 = data->sorted[stacks->stack_a->size - 2];
-	data->max_3 = data->sorted[stacks->stack_a->size - 3];
-	data->max_4 = data->sorted[stacks->stack_a->size - 4];
-	data->max_5 = data->sorted[stacks->stack_a->size - 5];
-	if (data->size % 2 == 0)
-		data->pivot = data->sorted[(data->size - 2) / 2];
-	else
-		data->pivot = data->sorted[(data->size - 1) / 2];
+	data->min = sorted[0];
+	data->max_1 = sorted[stacks->stack_a->size - 1];
+	data->max_2 = sorted[stacks->stack_a->size - 2];
+	data->max_3 = sorted[stacks->stack_a->size - 3];
+	data->max_4 = sorted[stacks->stack_a->size - 4];
+	data->max_5 = sorted[stacks->stack_a->size - 5];
+	data->pivot = select_pivot(sorted, data->size);
+	free(sorted);
 	return (data);
 }

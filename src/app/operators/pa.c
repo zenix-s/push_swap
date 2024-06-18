@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:07 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/14 17:35:42 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:46:12 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
  */
 void	pa(t_stacks *stacks)
 {
+	int	b_value;
+
 	if (stacks->stack_b->size == 0)
 		return ;
-	push_stack(stacks->stack_a, stacks->stack_b->stack[stacks->stack_b->size
-		- 1].value);
+	b_value = stacks->stack_b->stack[stacks->stack_b->size - 1].value;
+	push_stack(stacks->stack_a, b_value);
 	pop_stack(stacks->stack_b);
 	ft_printf("pa\n");
 }

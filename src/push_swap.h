@@ -65,7 +65,6 @@ typedef enum e_cost_type
 
 typedef struct s_sort_data
 {
-	t_item		*sorted;
 	int			size;
 	t_item		pivot;
 	t_item		min;
