@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   find_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/17 23:37:29 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/17 18:11:20 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/17 23:24:05 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rra(t_stacks *stacks)
-{
-  reverse_rotate_stack(stacks->stack_a);
-  ft_printf("rra\n");
+t_item find_min(t_stack *stack) {
+  t_item min;
+  int i;
+
+  i = 0;
+  min = stack->stack[0];
+  while (i < stack->size) {
+    if (stack->stack[i].value < min.value) {
+      min = stack->stack[i];
+    }
+    i++;
+  }
+  return min;
 }

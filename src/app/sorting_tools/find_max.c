@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   find_max.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/17 23:37:29 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/17 18:48:03 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/17 23:23:54 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+// Find the max item in the stack
+t_item find_max(t_stack *stack) {
+  t_item max;
+  int i;
 
-void	rra(t_stacks *stacks)
-{
-  reverse_rotate_stack(stacks->stack_a);
-  ft_printf("rra\n");
+  i = 0;
+  max.index = -1;
+  max.value = INT_MIN;
+  while (i < stack->size) {
+    if (stack->stack[i].value > max.value) {
+      max = stack->stack[i];
+    }
+    i++;
+  }
+  return max;
 }

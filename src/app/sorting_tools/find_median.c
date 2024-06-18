@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   find_median.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/17 23:37:29 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/17 18:15:02 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/17 23:24:00 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	rra(t_stacks *stacks)
-{
-  reverse_rotate_stack(stacks->stack_a);
-  ft_printf("rra\n");
-}
+// t_item find_median(t_stack *stack) {
+// }

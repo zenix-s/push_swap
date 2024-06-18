@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:36 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/17 01:28:19 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:57:44 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-  int operations;
 
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	stacks->stack_a = init_stack('a');
@@ -25,8 +24,16 @@ int	main(int argc, char **argv)
   
   // print_stack(stacks->stack_a);
   // operations = ft_sort(stacks);
-  ft_sort(stacks);
-  (void)operations;
+  if (stacks->stack_a->size == 2)
+    sort_two(stacks);
+  else if (stacks->stack_a->size == 3)
+    sort_three(stacks);
+  else if (stacks->stack_a->size == 4)
+    sort_four(stacks);
+  else if (stacks->stack_a->size == 5)
+    sort_five(stacks);
+  else
+    ft_sort(stacks);
   // ft_printf("OPERATIONS: %d\n", operations);
   // print_stack(stacks->stack_a);
   // print_stack(stacks->stack_b);
