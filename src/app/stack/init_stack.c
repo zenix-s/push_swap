@@ -18,6 +18,6 @@ t_stack	*init_stack(char id)
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	stack->stack = NULL;
-  stack->id = id;
+	stack->id = id;
 	return (stack);
 }

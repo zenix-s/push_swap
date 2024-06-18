@@ -14,6 +14,6 @@
 
 void	rrb(t_stacks *stacks)
 {
-  reverse_rotate_stack(stacks->stack_b);
-  ft_printf("rrb\n");
+	reverse_rotate_stack(stacks->stack_b);
+	ft_printf("rrb\n");
 }

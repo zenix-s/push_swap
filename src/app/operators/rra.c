@@ -14,6 +14,6 @@
 
 void	rra(t_stacks *stacks)
 {
-  reverse_rotate_stack(stacks->stack_a);
-  ft_printf("rra\n");
+	reverse_rotate_stack(stacks->stack_a);
+	ft_printf("rra\n");
 }

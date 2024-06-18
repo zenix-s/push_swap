@@ -11,19 +11,23 @@
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-// Find the max item in the stack
-t_item find_max(t_stack *stack) {
-  t_item max;
-  int i;
 
-  i = 0;
-  max.index = -1;
-  max.value = INT_MIN;
-  while (i < stack->size) {
-    if (stack->stack[i].value > max.value) {
-      max = stack->stack[i];
-    }
-    i++;
-  }
-  return max;
+// Find the max item in the stack
+t_item	find_max(t_stack *stack)
+{
+	t_item	max;
+	int		i;
+
+	i = 0;
+	max.index = -1;
+	max.value = INT_MIN;
+	while (i < stack->size)
+	{
+		if (stack->stack[i].value > max.value)
+		{
+			max = stack->stack[i];
+		}
+		i++;
+	}
+	return (max);
 }

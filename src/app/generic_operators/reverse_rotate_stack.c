@@ -16,17 +16,19 @@
  * Reverses the stack. The last element becomes the first, the second to last
  * @param stack Pointer to the stack.
  */
-void reverse_rotate_stack(t_stack *stack) {
-  int tmp;
-  int i;
+void	reverse_rotate_stack(t_stack *stack)
+{
+	int	tmp;
+	int	i;
 
-  if (stack->size < 2)
-    return;
-  tmp = stack->stack[0].value;
-  i = 0;
-  while (i < stack->size - 1) {
-    stack->stack[i].value = stack->stack[i + 1].value;
-    i++;
-  }
-  stack->stack[stack->size - 1].value = tmp;
+	if (stack->size < 2)
+		return ;
+	tmp = stack->stack[0].value;
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		stack->stack[i].value = stack->stack[i + 1].value;
+		i++;
+	}
+	stack->stack[stack->size - 1].value = tmp;
 }

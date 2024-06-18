@@ -19,7 +19,7 @@
 void	pop_stack(t_stack *stack)
 {
 	t_item	*new_stack;
-	int	i;
+	int		i;
 
 	if (stack->size == 0)
 		return ;

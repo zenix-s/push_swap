@@ -12,17 +12,20 @@
 
 #include "../../push_swap.h"
 
-t_item find_min(t_stack *stack) {
-  t_item min;
-  int i;
+t_item	find_min(t_stack *stack)
+{
+	t_item	min;
+	int		i;
 
-  i = 0;
-  min = stack->stack[0];
-  while (i < stack->size) {
-    if (stack->stack[i].value < min.value) {
-      min = stack->stack[i];
-    }
-    i++;
-  }
-  return min;
+	i = 0;
+	min = stack->stack[0];
+	while (i < stack->size)
+	{
+		if (stack->stack[i].value < min.value)
+		{
+			min = stack->stack[i];
+		}
+		i++;
+	}
+	return (min);
 }

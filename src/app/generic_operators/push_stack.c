@@ -20,7 +20,7 @@
 void	push_stack(t_stack *stack, int element)
 {
 	t_item	*new_stack;
-	int	i;
+	int		i;
 
 	new_stack = (t_item *)malloc((stack->size + 1) * sizeof(t_item));
 	i = 0;
@@ -30,7 +30,7 @@ void	push_stack(t_stack *stack, int element)
 		i++;
 	}
 	new_stack[i].value = element;
-  new_stack[i].index = i;
+	new_stack[i].index = i;
 	free(stack->stack);
 	stack->stack = new_stack;
 	stack->size++;

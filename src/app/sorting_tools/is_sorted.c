@@ -16,14 +16,16 @@
  * Ceck if stack is sorted
  * 0 1 2 3 4 5 6 7 8 9
  */
-t_bool is_sorted(t_stack *stack) {
-  int index;
+t_bool	is_sorted(t_stack *stack)
+{
+	int	index;
 
-  index = 0;
-  while (index < stack->size - 1) {
-    if (stack->stack[index].value < stack->stack[index + 1].value)
-      return (FALSE);
-    index++;
-  }
-  return (TRUE);
+	index = 0;
+	while (index < stack->size - 1)
+	{
+		if (stack->stack[index].value < stack->stack[index + 1].value)
+			return (FALSE);
+		index++;
+	}
+	return (TRUE);
 }

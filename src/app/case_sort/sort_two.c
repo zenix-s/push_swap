@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   sort_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:23 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/14 17:35:42 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/17 19:07:14 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/17 19:08:43 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	sa(t_stacks *stacks)
+void	sort_two(t_stacks *stacks)
 {
-	swap_stack(stacks->stack_a);
-	ft_printf("sa\n");
+	if (!is_sorted(stacks->stack_a))
+		sa(stacks);
 }

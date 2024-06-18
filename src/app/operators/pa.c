@@ -16,11 +16,12 @@
  * Pushes the top element of stack b to stack a.
  *
  */
-void pa(t_stacks *stacks) {
-  if (stacks->stack_b->size == 0)
-    return;
-  push_stack(stacks->stack_a,
-             stacks->stack_b->stack[stacks->stack_b->size - 1].value);
-  pop_stack(stacks->stack_b);
-  ft_printf("pa\n");
+void	pa(t_stacks *stacks)
+{
+	if (stacks->stack_b->size == 0)
+		return ;
+	push_stack(stacks->stack_a, stacks->stack_b->stack[stacks->stack_b->size
+		- 1].value);
+	pop_stack(stacks->stack_b);
+	ft_printf("pa\n");
 }

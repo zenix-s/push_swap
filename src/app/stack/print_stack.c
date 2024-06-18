@@ -20,14 +20,14 @@ void	print_stack(t_stack *stack)
 {
 	int	size;
 
-  ft_printf("Stack %c\n", stack->id);
-  ft_printf("Size: %d\n", stack->size);
-  ft_printf("--------------------\n");
-
+	ft_printf("Stack %c\n", stack->id);
+	ft_printf("Size: %d\n", stack->size);
+	ft_printf("--------------------\n");
 	size = stack->size;
 	while (size - 1 >= 0)
 	{
-		ft_printf("%d: %d\n", stack->stack[size - 1].index, stack->stack[size - 1].value);
+		ft_printf("%d: %d\n", stack->stack[size - 1].index, stack->stack[size
+			- 1].value);
 		size--;
 	}
 }
