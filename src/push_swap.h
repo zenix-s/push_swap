@@ -30,7 +30,7 @@ typedef struct s_stack
 	char		id;
 	int			size;
 	t_item		**stack;
-	int allocated;
+	int			allocated;
 }				t_stack;
 
 typedef struct s_stacks
@@ -77,14 +77,14 @@ typedef struct s_sort_data
 }				t_sort_data;
 
 // Program related
-void end_program(t_stacks *stacks);
+void			end_program(t_stacks *stacks);
 void			free_stack(t_stack *stack);
 
 // Error handling
 void			error(t_stacks *stacks);
 
 // Stack
-t_stack	*init_stack(char id, int stack_size);
+t_stack			*init_stack(char id, int stack_size);
 void			print_stack(t_stack *stack);
 t_bool			find_dup(t_stack *stack, int item);
 t_bool			process_item(char *str, int *item);

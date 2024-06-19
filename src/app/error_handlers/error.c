@@ -14,7 +14,7 @@
 
 void	error(t_stacks *stacks)
 {
-  end_program(stacks);
+	end_program(stacks);
 	write(2, "Error\n", 6);
 	exit(1);
 }

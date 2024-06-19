@@ -12,12 +12,14 @@
 
 #include "../../push_swap.h"
 
-void pb(t_stacks *stacks) {
-  int a_value;
-  if (stacks->stack_a->size == 0)
-    return;
-  a_value = stacks->stack_a->stack[stacks->stack_a->size - 1]->value;
-  push_stack(stacks->stack_b, a_value);
-  pop_stack(stacks->stack_a);
-  ft_printf("pb\n");
+void	pb(t_stacks *stacks)
+{
+	int	a_value;
+
+	if (stacks->stack_a->size == 0)
+		return ;
+	a_value = stacks->stack_a->stack[stacks->stack_a->size - 1]->value;
+	push_stack(stacks->stack_b, a_value);
+	pop_stack(stacks->stack_a);
+	ft_printf("pb\n");
 }

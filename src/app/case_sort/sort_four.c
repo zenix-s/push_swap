@@ -12,16 +12,17 @@
 
 #include "../../push_swap.h"
 
-void sort_four(t_stacks *stacks) {
-  t_item *min;
+void	sort_four(t_stacks *stacks)
+{
+	t_item	*min;
 
-  if (is_sorted(stacks->stack_a))
-    return;
-  min = find_min(stacks->stack_a);
-  top_item(stacks, 'a', min);
-  if (is_sorted(stacks->stack_a))
-    return;
-  pb(stacks);
-  sort_three(stacks);
-  pa(stacks);
+	if (is_sorted(stacks->stack_a))
+		return ;
+	min = find_min(stacks->stack_a);
+	top_item(stacks, 'a', min);
+	if (is_sorted(stacks->stack_a))
+		return ;
+	pb(stacks);
+	sort_three(stacks);
+	pa(stacks);
 }

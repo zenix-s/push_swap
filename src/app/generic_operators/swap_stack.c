@@ -16,12 +16,13 @@
  * Swaps the top two elements of the stack.
  * @param stack Pointer to the stack.
  */
-void swap_stack(t_stack *stack) {
-  int tmp;
+void	swap_stack(t_stack *stack)
+{
+	int	tmp;
 
-  if (stack->size < 2)
-    return;
-  tmp = stack->stack[stack->size - 1]->value;
-  stack->stack[stack->size - 1]->value = stack->stack[stack->size - 2]->value;
-  stack->stack[stack->size - 2]->value = tmp;
+	if (stack->size < 2)
+		return ;
+	tmp = stack->stack[stack->size - 1]->value;
+	stack->stack[stack->size - 1]->value = stack->stack[stack->size - 2]->value;
+	stack->stack[stack->size - 2]->value = tmp;
 }

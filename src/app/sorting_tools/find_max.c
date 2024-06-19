@@ -19,7 +19,7 @@ t_item	*find_max(t_stack *stack)
 	int		i;
 
 	i = 0;
-  max = stack->stack[0];
+	max = stack->stack[0];
 	while (i < stack->size)
 	{
 		if (stack->stack[i]->value > max->value)
