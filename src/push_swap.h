@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:36:15 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:13:13 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:43:57 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void			free_stack(t_stack *stack);
 void			error(t_stacks *stacks);
 
 // Stack
-t_stack			*init_stack(char id);
+t_stack	*init_stack(char id, int stack_size);
 void			print_stack(t_stack *stack);
 t_bool			find_dup(t_stack *stack, int item);
 t_bool			process_item(char *str, int *item);
