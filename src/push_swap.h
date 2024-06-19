@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:36:15 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 12:43:57 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 13:56:05 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ typedef struct s_sort_data
 	t_item		max_5;
 }				t_sort_data;
 
-// Error handling
+// Program related
+void end_program(t_stacks *stacks);
 void			free_stack(t_stack *stack);
+
+// Error handling
 void			error(t_stacks *stacks);
 
 // Stack
