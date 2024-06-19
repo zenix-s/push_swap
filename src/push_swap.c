@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:36 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 18:29:44 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:02:30 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
      end_program(stacks);
   	return (0);
   }
+  // print_stack(stacks->stack_a);
   if (stacks->stack_a->size == 2)
   	sort_two(stacks);
   else if (stacks->stack_a->size == 3)
@@ -34,6 +35,7 @@ int main(int argc, char **argv) {
   	sort_five(stacks);
   else
   	ft_sort(stacks);
+  // print_stack(stacks->stack_a);
   end_program(stacks);
   return (0);
 }
