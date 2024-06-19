@@ -6,20 +6,20 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:11:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:28:56 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:15:18 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	calculate_operations(t_stacks *stacks, t_item item)
+int	calculate_operations(t_stacks *stacks, t_item *item)
 {
 	int		total_cost;
-	t_item	closest;
+	t_item	*closest;
 	t_cost	a_cost;
 	t_cost	b_cost;
 
-	closest = find_target(stacks->stack_a, item.value);
+	closest = find_target(stacks->stack_a, item->value);
 	a_cost = calc_cost(stacks->stack_a, closest, TOP);
 	b_cost = calc_cost(stacks->stack_b, item, TOP);
 	if (a_cost.direction == UP && b_cost.direction == UP)

@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:35:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/17 23:24:09 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:02:41 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	is_sorted(t_stack *stack)
 	index = 0;
 	while (index < stack->size - 1)
 	{
-		if (stack->stack[index].value < stack->stack[index + 1].value)
+		if (stack->stack[index]->value < stack->stack[index + 1]->value)
 			return (FALSE);
 		index++;
 	}

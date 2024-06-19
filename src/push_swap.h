@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: serferna <serferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:36:15 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 13:56:05 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:27:59 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_stack
 {
 	char		id;
 	int			size;
-	t_item		*stack;
+	t_item		**stack;
+	int allocated;
 }				t_stack;
 
 typedef struct s_stacks
@@ -114,12 +115,12 @@ void			rrb(t_stacks *stacks);
 void			rrr(t_stacks *stacks);
 
 // Sort tools
-t_item			find_min(t_stack *stack);
-t_item			find_max(t_stack *stack);
+t_item			*find_min(t_stack *stack);
+t_item			*find_max(t_stack *stack);
 t_bool			is_sorted(t_stack *stack);
-void			top_item(t_stacks *stacks, char stack_id, t_item item);
-void			bottom_item(t_stacks *stacks, char stack_id, t_item item);
-t_cost			calc_cost(t_stack *stack, t_item item, t_cost_type cost_type);
+void			top_item(t_stacks *stacks, char stack_id, t_item *item);
+void			bottom_item(t_stacks *stacks, char stack_id, t_item *item);
+t_cost			calc_cost(t_stack *stack, t_item *item, t_cost_type cost_type);
 t_item			*bubble_sort_init_stack(t_stacks *stacks);
 
 // Sort by size
@@ -137,8 +138,8 @@ int				ft_sort(t_stacks *stacks);
 // Sort Utils
 t_sort_data		*init_sort_data(t_stacks *stacks);
 t_bool			is_big_five(t_sort_data *data, int value);
-t_item			find_target(t_stack *stack, int value);
-int				calculate_operations(t_stacks *stacks, t_item item);
-void			push_to_target(t_stacks *stacks, t_item item);
+t_item			*find_target(t_stack *stack, int value);
+int				calculate_operations(t_stacks *stacks, t_item *item);
+void			push_to_target(t_stacks *stacks, t_item *item);
 
 #endif

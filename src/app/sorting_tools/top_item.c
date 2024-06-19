@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 23:54:28 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 12:50:23 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:19:31 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@
 // 	}
 // }
 
-static void	calculate_cost(t_stack *stack, t_item item, int *cost_up,
+static void	calculate_cost(t_stack *stack, t_item *item, int *cost_up,
 		int *cost_down)
 {
-	*cost_up = (stack->size - 1) - item.index;
-	*cost_down = item.index + 1;
+	*cost_up = (stack->size - 1) - item->index;
+	*cost_down = item->index + 1;
 }
 
 /**
  * Moves the item to the top of the stack
  *
  */
-void	top_item(t_stacks *stacks, char stack_id, t_item item)
+void	top_item(t_stacks *stacks, char stack_id, t_item *item)
 {
 	int	cost_up;
 	int	cost_down;

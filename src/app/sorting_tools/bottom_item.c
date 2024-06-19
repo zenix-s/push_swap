@@ -6,20 +6,20 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:24:11 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 12:51:58 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:20:17 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static void	calculate_cost(t_stack *stack, t_item item, int *cost_up,
+static void	calculate_cost(t_stack *stack, t_item *item, int *cost_up,
 		int *cost_down)
 {
-	*cost_up = (stack->size - 1) - item.index + 1;
-	*cost_down = item.index;
+	*cost_up = (stack->size - 1) - item->index + 1;
+	*cost_down = item->index;
 }
 
-void	bottom_item(t_stacks *stacks, char stack_id, t_item item)
+void	bottom_item(t_stacks *stacks, char stack_id, t_item *item)
 {
 	int	cost_up;
 	int	cost_down;

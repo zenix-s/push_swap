@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:22:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:06:35 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:56:43 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_item	*bubble_sort_init_stack(t_stacks *stacks)
 	i = 0;
 	while (i < stacks->stack_a->size)
 	{
-		sorted[i].value = stacks->stack_a->stack[i].value;
-		sorted[i].index = stacks->stack_a->stack[i].index;
+		sorted[i].value = stacks->stack_a->stack[i]->value;
+		sorted[i].index = stacks->stack_a->stack[i]->index;
 		i++;
 	}
 	return (bubble_sort(sorted, stacks->stack_a->size));

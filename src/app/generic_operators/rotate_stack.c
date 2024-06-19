@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:03 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/14 17:35:42 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:57:54 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	rotate_stack(t_stack *stack)
 
 	if (stack->size < 2)
 		return ;
-	tmp = stack->stack[stack->size - 1].value;
+	tmp = stack->stack[stack->size - 1]->value;
 	i = stack->size - 1;
 	while (i > 0)
 	{
-		stack->stack[i].value = stack->stack[i - 1].value;
+		stack->stack[i]->value = stack->stack[i - 1]->value;
 		i--;
 	}
-	stack->stack[0].value = tmp;
+	stack->stack[0]->value = tmp;
 }
