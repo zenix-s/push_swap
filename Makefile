@@ -1,6 +1,6 @@
 # DIRECTORIES
-MAIN_SRC = ./src/push_swap.c
-SRC = $(wildcard ./src/app/**/*.c)
+SRC = $(wildcard ./src/app/**/*.c) ./src/push_swap.c
+OBJ = $(SRC:.c=.o)
 
 # VARIABLES
 CC = cc
@@ -18,11 +18,14 @@ $(LIBFT):
 	@$(MAKE) -s all -C $(LIBFT_SRC) > /dev/null
 	@echo "Libft compiled"
 
-$(NAME): $(LIBFT)
-	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(MAIN_SRC) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "Push_swap compiled"
 
 all: $(NAME)
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJ)
@@ -38,3 +41,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+.DEFAULT_GOAL = all
