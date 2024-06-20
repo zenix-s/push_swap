@@ -2,6 +2,7 @@ push_swap_visualizer
 checker_linux
 push_swap
 log
-push_swap_test_linux.sh
-push_swap_tester.sh
+push_swap_Tester
+Push-Swap-Tester
 traces.txt
+.vscode
