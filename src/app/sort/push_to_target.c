@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:12:55 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:53:58 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:34:01 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static void	execute_rotation(t_stacks *stacks, t_cost a_cost, t_cost b_cost)
 }
 
 // move the item at the top of b to the target position in a
-void	push_to_target(t_stacks *stacks, t_item item)
+void	push_to_target(t_stacks *stacks, t_item *item)
 {
-	t_item	target;
+	t_item	*target;
 	t_cost	a_cost;
 	t_cost	b_cost;
 
-	target = find_target(stacks->stack_a, item.value);
-	a_cost = calc_cost(stacks->stack_a, target, TOP);
-	b_cost = calc_cost(stacks->stack_b, item, TOP);
+	target = find_target(stacks->stack_a, item->value);
+	a_cost = cost_top(stacks->stack_a, target);
+	b_cost = cost_top(stacks->stack_b, item);
 	execute_rotation(stacks, a_cost, b_cost);
 	pa(stacks);
 }

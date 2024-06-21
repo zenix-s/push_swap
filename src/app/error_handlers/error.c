@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:34:50 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 13:59:49 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:26:42 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	error(t_stacks *stacks)
 {
-  end_program(stacks);
+	if (stacks != NULL)
+		end_program(stacks);
 	write(2, "Error\n", 6);
 	exit(1);
 }

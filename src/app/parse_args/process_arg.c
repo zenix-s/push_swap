@@ -6,21 +6,21 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:48:51 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 21:52:13 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:41:53 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_bool	check_sign(char *str, int *sign)
+t_bool	check_sign(char *str, int *sign, int *i)
 {
-	if (*str == '-' || *str == '+')
+	if (str[*i] == '-' || str[*i] == '+')
 	{
 		if (ft_strlen(str) == 1)
 			return (FALSE);
-		if (*str == '-')
+		if (str[*i] == '-')
 			*sign = -1;
-		str++;
+		*i = *i + 1;
 	}
 	return (TRUE);
 }
@@ -29,20 +29,22 @@ t_bool	process_item(char *str, int *item)
 {
 	int			sign;
 	long long	value;
+	int			i;
 
+	i = 0;
 	value = 0;
 	sign = 1;
-	if (!check_sign(str, &sign))
+	if (!check_sign(str, &sign, &i))
 		return (FALSE);
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		value = (value * 10) + (*str - '0');
+		value = (value * 10) + (str[i] - '0');
 		if ((sign == 1 && value > INT_MAX) || (sign == -1
 				&& value > (long long)INT_MAX + 1))
 			return (FALSE);
-		str++;
+		i++;
 	}
-	if (*str != '\0')
+	if (str[i] != '\0')
 		return (FALSE);
 	value *= sign;
 	*item = (int)value;

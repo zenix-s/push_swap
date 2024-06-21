@@ -6,26 +6,26 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:12:04 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 23:23:54 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 20:33:48 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_item	find_target(t_stack *stack, int value)
+t_item	*find_target(t_stack *stack, int value)
 {
-	t_item	closest;
+	t_item	*closest;
 	int		item_value;
 	int		i;
 
 	i = 0;
-	closest.index = -1;
-	closest.value = INT_MIN;
+	while (stack->stack[i]->value < value)
+		i++;
+	closest = stack->stack[i];
 	while (i < stack->size)
 	{
-		item_value = stack->stack[i].value;
-		if (item_value > value && (item_value < closest.value
-				|| closest.index == -1))
+		item_value = stack->stack[i]->value;
+		if (item_value > value && item_value < closest->value)
 			closest = stack->stack[i];
 		i++;
 	}

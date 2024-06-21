@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 00:03:53 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/18 00:03:58 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:52:38 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	sort_five(t_stacks *stacks)
 {
-	t_item	min;
+	t_item	*min;
 
-	if (is_sorted(stacks->stack_a))
-		return ;
 	min = find_min(stacks->stack_a);
 	top_item(stacks, 'a', min);
 	if (is_sorted(stacks->stack_a))
