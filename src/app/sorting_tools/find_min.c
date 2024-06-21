@@ -22,9 +22,7 @@ t_item	*find_min(t_stack *stack)
 	while (i < stack->size)
 	{
 		if (stack->stack[i]->value < min->value)
-		{
 			min = stack->stack[i];
-		}
 		i++;
 	}
 	return (min);

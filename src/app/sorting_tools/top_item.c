@@ -12,21 +12,6 @@
 
 #include "../../push_swap.h"
 
-// static void	calculate_cost(t_stacks *stacks, char stack_id, t_item item,
-// 		int *cost_up, int *cost_down)
-// {
-// 	if (stack_id == 'a')
-// 	{
-// 		*cost_up = (stacks->stack_a->size - 1) - item.index;
-// 		*cost_down = item.index + 1;
-// 	}
-// 	else
-// 	{
-// 		*cost_up = (stacks->stack_b->size - 1) - item.index;
-// 		*cost_down = item.index + 1;
-// 	}
-// }
-
 static void	calculate_cost(t_stack *stack, t_item *item, int *cost_up,
 		int *cost_down)
 {

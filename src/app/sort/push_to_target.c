@@ -46,8 +46,8 @@ void	push_to_target(t_stacks *stacks, t_item *item)
 	t_cost	b_cost;
 
 	target = find_target(stacks->stack_a, item->value);
-	a_cost = calc_cost(stacks->stack_a, target, TOP);
-	b_cost = calc_cost(stacks->stack_b, item, TOP);
+	a_cost = cost_top(stacks->stack_a, target);
+	b_cost = cost_top(stacks->stack_b, item);
 	execute_rotation(stacks, a_cost, b_cost);
 	pa(stacks);
 }

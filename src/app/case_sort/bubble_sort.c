@@ -12,19 +12,18 @@
 
 #include "../../push_swap.h"
 
-t_item	*bubble_sort_init_stack(t_stacks *stacks)
+int	*bubble_sort_init_stack(t_stacks *stacks)
 {
-	t_item	*sorted;
+	int		*sorted;
 	int		i;
 
-	sorted = malloc(sizeof(t_item) * stacks->stack_a->size);
+	sorted = malloc(sizeof(int) * stacks->stack_a->size);
 	if (sorted == NULL)
 		error(stacks);
 	i = 0;
 	while (i < stacks->stack_a->size)
 	{
-		sorted[i].value = stacks->stack_a->stack[i]->value;
-		sorted[i].index = stacks->stack_a->stack[i]->index;
+		sorted[i] = stacks->stack_a->stack[i]->value;
 		i++;
 	}
 	return (bubble_sort(sorted, stacks->stack_a->size));
@@ -39,7 +38,7 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-t_item	*bubble_sort(t_item *stack, int size)
+int	*bubble_sort(int *stack, int size)
 {
 	int	i;
 	int	j;
@@ -52,10 +51,9 @@ t_item	*bubble_sort(t_item *stack, int size)
 		j = 0;
 		while (j < n - i - 1)
 		{
-			if (stack[j].value > stack[j + 1].value)
+			if (stack[j] > stack[j + 1])
 			{
-				swap(&stack[j].value, &stack[j + 1].value);
-				swap(&stack[j].index, &stack[j + 1].index);
+				swap(&stack[j], &stack[j + 1]);
 			}
 			j++;
 		}

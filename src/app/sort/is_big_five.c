@@ -14,9 +14,9 @@
 
 t_bool	is_big_five(t_sort_data *data, int value)
 {
-	if (value == data->max_1.value || value == data->max_2.value
-		|| value == data->max_3.value || value == data->max_4.value
-		|| value == data->max_5.value)
+	if (value == data->max_1 || value == data->max_2
+		|| value == data->max_3 || value == data->max_4
+		|| value == data->max_5)
 		return (TRUE);
 	return (FALSE);
 }

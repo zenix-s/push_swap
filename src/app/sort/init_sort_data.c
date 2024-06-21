@@ -12,9 +12,9 @@
 
 #include "../../push_swap.h"
 
-t_item	select_pivot(const t_item *sorted, const int size)
+int	select_pivot(const int *sorted, const int size)
 {
-	t_item	pivot;
+	int	pivot;
 
 	if (size % 2 == 0)
 		pivot = sorted[size / 2];
@@ -26,14 +26,13 @@ t_item	select_pivot(const t_item *sorted, const int size)
 t_sort_data	*init_sort_data(t_stacks *stacks)
 {
 	t_sort_data	*data;
-	t_item		*sorted;
+	int			*sorted;
 
 	data = malloc(sizeof(t_sort_data));
 	if (data == NULL)
-		return error(stacks), NULL;
+		return (error(stacks), NULL);
 	sorted = bubble_sort_init_stack(stacks);
 	data->size = stacks->stack_a->size;
-	data->min = sorted[0];
 	data->max_1 = sorted[stacks->stack_a->size - 1];
 	data->max_2 = sorted[stacks->stack_a->size - 2];
 	data->max_3 = sorted[stacks->stack_a->size - 3];

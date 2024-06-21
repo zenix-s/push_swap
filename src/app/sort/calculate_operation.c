@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-int	calculate_operations(t_stacks *stacks, t_item *item)
+int	calculate_operation(t_stacks *stacks, t_item *item)
 {
 	int		total_cost;
 	t_item	*closest;
@@ -20,14 +20,14 @@ int	calculate_operations(t_stacks *stacks, t_item *item)
 	t_cost	b_cost;
 
 	closest = find_target(stacks->stack_a, item->value);
-	a_cost = calc_cost(stacks->stack_a, closest, TOP);
-	b_cost = calc_cost(stacks->stack_b, item, TOP);
+	a_cost = cost_top(stacks->stack_a, closest);
+	b_cost = cost_top(stacks->stack_b, item);
 	if (a_cost.direction == UP && b_cost.direction == UP)
 	{
-		if (a_cost.cost > b_cost.cost)
-			total_cost = a_cost.cost;
-		else
+		if (a_cost.cost <= b_cost.cost)
 			total_cost = b_cost.cost;
+		else
+			total_cost = a_cost.cost;
 	}
 	else if (a_cost.direction == DOWN && b_cost.direction == DOWN)
 	{

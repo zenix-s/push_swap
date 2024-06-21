@@ -13,8 +13,7 @@
 #include "../../push_swap.h"
 
 /**
- * Ceck if stack is sorted
- * 0 1 2 3 4 5 6 7 8 9
+ * Check if stack is sorted
  */
 t_bool	is_sorted(t_stack *stack)
 {

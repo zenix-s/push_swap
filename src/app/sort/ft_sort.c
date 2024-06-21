@@ -27,7 +27,7 @@ static void	pre_sort(t_stacks *stacks, t_sort_data *data)
 		{
 			pb(stacks);
 			item = stacks->stack_b->stack[stacks->stack_b->size - 1];
-			if (item->value > data->pivot.value && stacks->stack_b->size > 2)
+			if (item->value > data->pivot && stacks->stack_b->size > 2)
 				rb(stacks);
 		}
 		data->size--;
@@ -38,6 +38,8 @@ static void	operation_return(t_stacks *stacks)
 {
 	int		i;
 	t_item	*item;
+	int		b_ops;
+	int		item_ops;
 
 	while (stacks->stack_b->size)
 	{
@@ -45,9 +47,9 @@ static void	operation_return(t_stacks *stacks)
 		item = stacks->stack_b->stack[0];
 		while (i < stacks->stack_b->size)
 		{
-			if (calculate_operations(stacks,
-					stacks->stack_b->stack[i]) < calculate_operations(stacks,
-					item))
+			b_ops = calculate_operation(stacks, stacks->stack_b->stack[i]);
+			item_ops = calculate_operation(stacks, item);
+			if (b_ops < item_ops)
 				item = stacks->stack_b->stack[i];
 			i++;
 		}

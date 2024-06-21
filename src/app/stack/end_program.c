@@ -28,6 +28,8 @@ void	free_stack(t_stack *stack)
 // Función para finalizar el programa y liberar toda la memoria
 void	end_program(t_stacks *stacks)
 {
+	if (stacks == NULL)
+		return ;
 	free_stack(stacks->stack_a);
 	free_stack(stacks->stack_b);
 	free(stacks);
