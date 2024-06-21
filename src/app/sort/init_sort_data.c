@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_item	select_pivot(t_item *sorted, int size)
+t_item	select_pivot(const t_item *sorted, const int size)
 {
 	t_item	pivot;
 
@@ -29,8 +29,8 @@ t_sort_data	*init_sort_data(t_stacks *stacks)
 	t_item		*sorted;
 
 	data = malloc(sizeof(t_sort_data));
-	if (!data)
-		error(stacks);
+	if (data == NULL)
+		return error(stacks), NULL;
 	sorted = bubble_sort_init_stack(stacks);
 	data->size = stacks->stack_a->size;
 	data->min = sorted[0];

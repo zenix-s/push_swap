@@ -86,7 +86,7 @@ void			error(t_stacks *stacks);
 // Stack
 t_stack			*init_stack(char id, int stack_size);
 void			print_stack(t_stack *stack);
-t_bool			find_dup(t_stack *stack, int item);
+t_bool			find_dup(const t_stack *stack, int item);
 t_bool			process_item(char *str, int *item);
 
 // Parse arguments

@@ -18,7 +18,7 @@ t_item	*bubble_sort_init_stack(t_stacks *stacks)
 	int		i;
 
 	sorted = malloc(sizeof(t_item) * stacks->stack_a->size);
-	if (!sorted)
+	if (sorted == NULL)
 		error(stacks);
 	i = 0;
 	while (i < stacks->stack_a->size)

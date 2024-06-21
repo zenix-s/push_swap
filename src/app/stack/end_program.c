@@ -14,6 +14,8 @@
 
 void	free_stack(t_stack *stack)
 {
+	if (stack == NULL)
+		return ;
 	while (stack->allocated > 0)
 	{
 		free(stack->stack[stack->allocated - 1]);

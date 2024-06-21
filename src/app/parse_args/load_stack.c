@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-static void	add_arg(t_stack *stack, int element)
+static void	add_arg(t_stack *stack, const int element)
 {
 	t_item	**new_stack;
 	int		i;
