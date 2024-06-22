@@ -13,7 +13,7 @@
 #include "../../push_swap.h"
 
 // Find the max item in the stack
-t_item	*find_max(t_stack *stack)
+t_item	*find_max(const t_stack* stack)
 {
 	t_item	*max;
 	int		i;

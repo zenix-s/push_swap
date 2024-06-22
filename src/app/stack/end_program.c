@@ -18,6 +18,8 @@ void	free_stack(t_stack *stack)
 		return ;
 	while (stack->allocated > 0)
 	{
+		if (stack->stack[stack->allocated - 1] == NULL)
+			continue ;
 		free(stack->stack[stack->allocated - 1]);
 		stack->allocated--;
 	}

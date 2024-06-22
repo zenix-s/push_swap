@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_item	*find_min(t_stack *stack)
+t_item	*find_min(const t_stack* stack)
 {
 	t_item	*min;
 	int		i;

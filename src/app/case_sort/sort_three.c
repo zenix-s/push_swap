@@ -15,7 +15,7 @@
 // sort three items in descending order
 // top of the stack is the smallest item with the index 2
 // bottom of the stack is the biggest item with the index 0
-void	sort_three(t_stacks *stacks)
+void	sort_three(const t_stacks *stacks)
 {
 	t_item	*max;
 	t_item	*min;

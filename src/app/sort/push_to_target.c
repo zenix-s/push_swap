@@ -39,7 +39,7 @@ static void	execute_rotation(t_stacks *stacks, t_cost a_cost, t_cost b_cost)
 }
 
 // move the item at the top of b to the target position in a
-void	push_to_target(t_stacks *stacks, t_item *item)
+void	push_to_target(t_stacks *stacks, const t_item *item)
 {
 	t_item	*target;
 	t_cost	a_cost;

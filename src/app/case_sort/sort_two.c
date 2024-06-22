@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	sort_two(t_stacks *stacks)
+void	sort_two(const t_stacks *stacks)
 {
 	if (!is_sorted(stacks->stack_a))
 		sa(stacks);

@@ -16,6 +16,6 @@ void	error(t_stacks *stacks)
 {
 	if (stacks != NULL)
 		end_program(stacks);
-	write(2, "Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

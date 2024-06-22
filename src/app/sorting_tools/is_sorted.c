@@ -15,7 +15,7 @@
 /**
  * Check if stack is sorted
  */
-t_bool	is_sorted(t_stack *stack)
+t_bool	is_sorted(const t_stack* stack)
 {
 	int	index;
 

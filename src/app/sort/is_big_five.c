@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_bool	is_big_five(t_sort_data *data, int value)
+t_bool	is_big_five(const t_sort_data* data, const int value)
 {
 	if (value == data->max_1 || value == data->max_2
 		|| value == data->max_3 || value == data->max_4

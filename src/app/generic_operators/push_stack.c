@@ -17,7 +17,7 @@
  * @param stack Pointer to the stack.
  * @param element Element to push.
  */
-void	push_stack(t_stack *stack, int element)
+void	push_stack(t_stack *stack, const int element)
 {
 	stack->stack[stack->size]->index = stack->size;
 	stack->stack[stack->size]->value = element;

@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_bool	check_sign(char *str, int *sign, int *i)
+t_bool	check_sign(const char *str, int *sign, int *i)
 {
 	if (str[*i] == '-' || str[*i] == '+')
 	{
@@ -25,7 +25,7 @@ t_bool	check_sign(char *str, int *sign, int *i)
 	return (TRUE);
 }
 
-t_bool	process_item(char *str, int *item)
+t_bool	process_item(const char* str, int *item)
 {
 	int			sign;
 	long long	value;

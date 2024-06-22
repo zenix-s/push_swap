@@ -36,7 +36,6 @@ SRC =	./src/push_swap.c \
 		./src/app/sorting_tools/top_item.c \
 		./src/app/sorting_tools/find_max.c \
 		./src/app/sorting_tools/cost_top.c \
-		./src/app/stack/print_stack.c \
 		./src/app/stack/init_stack.c \
 		./src/app/stack/end_program.c \
 		./src/app/stack/find_duplicate_stack.c \

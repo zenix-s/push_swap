@@ -12,8 +12,8 @@
 
 #include "../../push_swap.h"
 
-static void	calculate_cost(t_stack *stack, t_item *item, int *cost_up,
-		int *cost_down)
+static void	calculate_cost(const t_stack* stack, const t_item* item, int *cost_up,
+	                          int *cost_down)
 {
 	*cost_up = (stack->size - 1) - item->index;
 	*cost_down = item->index + 1;
@@ -23,7 +23,7 @@ static void	calculate_cost(t_stack *stack, t_item *item, int *cost_up,
  * Moves the item to the top of the stack
  *
  */
-void	top_item(t_stacks *stacks, char stack_id, t_item *item)
+void	top_item(const t_stacks *stacks, const char stack_id, const t_item* item)
 {
 	int	cost_up;
 	int	cost_down;

@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_stack	*init_stack(char id, int stack_size)
+t_stack	*init_stack(const char id, int stack_size)
 {
 	t_stack	*stack;
 	t_item	**items;
@@ -21,9 +21,7 @@ t_stack	*init_stack(char id, int stack_size)
 	stack->size = 0;
 	stack->allocated = 0;
 	if (stack_size <= 0)
-	{
 		stack->stack = NULL;
-	}
 	else
 	{
 		items = (t_item **)malloc(stack_size * sizeof(t_item *));
@@ -31,6 +29,8 @@ t_stack	*init_stack(char id, int stack_size)
 		while (stack_size > 0)
 		{
 			items[stack_size - 1] = (t_item *)malloc(sizeof(t_item));
+			if (items[stack_size - 1] == NULL || stack_size == 450)
+				return (stack->stack = items, NULL);
 			items[stack_size - 1]->index = -1;
 			stack_size--;
 		}

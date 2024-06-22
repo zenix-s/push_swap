@@ -16,7 +16,7 @@
  * Pushes the top element of stack b to stack a.
  *
  */
-void	pa(t_stacks *stacks)
+void	pa(const t_stacks* stacks)
 {
 	int	b_value;
 
@@ -25,5 +25,5 @@ void	pa(t_stacks *stacks)
 	b_value = stacks->stack_b->stack[stacks->stack_b->size - 1]->value;
 	push_stack(stacks->stack_a, b_value);
 	pop_stack(stacks->stack_b);
-	ft_printf("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }

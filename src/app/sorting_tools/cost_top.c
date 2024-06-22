@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_cost	cost_top(t_stack *stack, t_item *item)
+t_cost	cost_top(const t_stack* stack, const t_item* item)
 {
 	t_cost	cost;
 	int		cost_up;

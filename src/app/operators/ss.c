@@ -12,9 +12,9 @@
 
 #include "../../push_swap.h"
 
-void	ss(t_stacks *stacks)
+void	ss(const t_stacks* stacks)
 {
 	swap_stack(stacks->stack_a);
 	swap_stack(stacks->stack_b);
-	ft_printf("ss\n");
+	ft_putstr_fd("ss\n", 1);
 }

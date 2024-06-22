@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_bool	find_dup(const t_stack *stack, int item)
+t_bool	find_dup(const t_stack *stack, const int item)
 {
 	int	i;
 

@@ -12,8 +12,8 @@
 
 #include "../../push_swap.h"
 
-void	rrb(t_stacks *stacks)
+void	rrb(const t_stacks* stacks)
 {
 	reverse_rotate_stack(stacks->stack_b);
-	ft_printf("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }

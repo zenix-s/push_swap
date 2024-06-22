@@ -20,9 +20,7 @@ static void	pre_sort(t_stacks *stacks, t_sort_data *data)
 	{
 		item = stacks->stack_a->stack[stacks->stack_a->size - 1];
 		if (is_big_five(data, item->value))
-		{
 			ra(stacks);
-		}
 		else
 		{
 			pb(stacks);

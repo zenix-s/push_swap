@@ -19,7 +19,7 @@ int	*bubble_sort_init_stack(t_stacks *stacks)
 
 	sorted = malloc(sizeof(int) * stacks->stack_a->size);
 	if (sorted == NULL)
-		error(stacks);
+		return (error(stacks), NULL);
 	i = 0;
 	while (i < stacks->stack_a->size)
 	{
@@ -38,7 +38,7 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-int	*bubble_sort(int *stack, int size)
+int	*bubble_sort(int *stack, const int size)
 {
 	int	i;
 	int	j;

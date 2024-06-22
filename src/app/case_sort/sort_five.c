@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	sort_five(t_stacks *stacks)
+void	sort_five(const t_stacks *stacks)
 {
 	t_item	*min;
 

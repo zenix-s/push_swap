@@ -12,8 +12,8 @@
 
 #include "../../push_swap.h"
 
-void	sa(t_stacks *stacks)
+void	sa(const t_stacks* stacks)
 {
 	swap_stack(stacks->stack_a);
-	ft_printf("sa\n");
+	ft_putstr_fd("sa\n", 1);
 }
