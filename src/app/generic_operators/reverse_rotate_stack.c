@@ -16,7 +16,7 @@
  * Reverses the stack. The last element becomes the first, the second to last
  * @param stack Pointer to the stack.
  */
-void	reverse_rotate_stack(const t_stack* stack)
+void	reverse_rotate_stack(const t_stack *stack)
 {
 	int	tmp;
 	int	i;

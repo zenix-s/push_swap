@@ -16,7 +16,7 @@
  * Rotates the stack. The top element becomes the bottom element.
  * @param stack Pointer to the stack.
  */
-void	rotate_stack(const t_stack* stack)
+void	rotate_stack(const t_stack *stack)
 {
 	int	tmp;
 	int	i;

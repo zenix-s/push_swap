@@ -6,10 +6,9 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/22 00:58:49 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/22 20:04:32 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -70,7 +69,7 @@ void			free_stack(t_stack *stack);
 void			error(t_stacks *stacks);
 
 // Stack
-t_stack			*init_stack(const char id, int stack_size);
+t_bool			init_stack(const char id, int stack_size, t_stack **stack);
 t_bool			find_dup(const t_stack *stack, int item);
 
 // Parse arguments
@@ -102,7 +101,7 @@ void			rrr(const t_stacks *stacks);
 t_item			*find_min(const t_stack *stack);
 t_item			*find_max(const t_stack *stack);
 t_bool			is_sorted(const t_stack *stack);
-void			top_item(const t_stacks *stacks, const char stack_id, const t_item *item);
+void			top_item(const t_stacks *stacks, char id, const t_item *item);
 t_cost			cost_top(const t_stack *stack, const t_item *item);
 int				*bubble_sort_init_stack(t_stacks *stacks);
 
@@ -123,6 +122,6 @@ t_sort_data		*init_sort_data(t_stacks *stacks);
 t_bool			is_big_five(const t_sort_data *data, const int value);
 t_item			*find_target(const t_stack *stack, const int value);
 int				calculate_operation(const t_stacks *stacks, const t_item *item);
-void			push_to_target(t_stacks *stacks, const t_item *item);
+void			push_to_target(const t_stacks *stacks, const t_item *item);
 
 #endif

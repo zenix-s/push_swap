@@ -16,7 +16,7 @@
  * Swaps the top two elements of the stack.
  * @param stack Pointer to the stack.
  */
-void	swap_stack(const t_stack* stack)
+void	swap_stack(const t_stack *stack)
 {
 	int	tmp;
 

@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	rr(const t_stacks* stacks)
+void	rr(const t_stacks *stacks)
 {
 	rotate_stack(stacks->stack_a);
 	rotate_stack(stacks->stack_b);

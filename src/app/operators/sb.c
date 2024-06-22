@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	sb(const t_stacks* stacks)
+void	sb(const t_stacks *stacks)
 {
 	swap_stack(stacks->stack_b);
 	ft_putstr_fd("sb\n", 1);

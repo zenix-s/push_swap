@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:36 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 20:28:24 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/22 20:15:27 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	main(const int argc, char **argv)
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		return (1);
-	stacks->stack_a = init_stack('a', 0);
+	init_stack('a', 0, &stacks->stack_a);
 	load_stack(stacks, argc, argv);
-	stacks->stack_b = init_stack('b', stacks->stack_a->size);
+	if (init_stack('b', stacks->stack_a->size, &stacks->stack_b) == FALSE)
+		return (end_program(stacks), 1);
 	if (stacks->stack_b == NULL)
 		return (end_program(stacks), 1);
 	if (is_sorted(stacks->stack_a))

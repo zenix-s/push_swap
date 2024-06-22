@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:48:51 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 15:41:53 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/22 20:00:20 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_bool	check_sign(const char *str, int *sign, int *i)
 	return (TRUE);
 }
 
-t_bool	process_item(const char* str, int *item)
+t_bool	process_item(const char *str, int *item)
 {
 	int			sign;
 	long long	value;
@@ -39,8 +39,8 @@ t_bool	process_item(const char* str, int *item)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		value = (value * 10) + (str[i] - '0');
-		if ((sign == 1 && value > INT_MAX) || (sign == -1
-				&& value > (long long)INT_MAX + 1))
+		if ((sign == 1 && value > INT_MAX)
+			|| (sign == -1 && value > (long long)INT_MAX + 1))
 			return (FALSE);
 		i++;
 	}

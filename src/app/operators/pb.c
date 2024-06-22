@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	pb(const t_stacks* stacks)
+void	pb(const t_stacks *stacks)
 {
 	int	a_value;
 

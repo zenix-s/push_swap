@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-static void	execute_rotation(t_stacks *stacks, t_cost a_cost, t_cost b_cost)
+static void	ex_rotation(const t_stacks *stacks, t_cost a_cost, t_cost b_cost)
 {
 	while ((a_cost.direction == UP && b_cost.direction == UP) && (a_cost.cost
 			&& b_cost.cost))
@@ -39,7 +39,7 @@ static void	execute_rotation(t_stacks *stacks, t_cost a_cost, t_cost b_cost)
 }
 
 // move the item at the top of b to the target position in a
-void	push_to_target(t_stacks *stacks, const t_item *item)
+void	push_to_target(const t_stacks *stacks, const t_item *item)
 {
 	t_item	*target;
 	t_cost	a_cost;
@@ -48,6 +48,6 @@ void	push_to_target(t_stacks *stacks, const t_item *item)
 	target = find_target(stacks->stack_a, item->value);
 	a_cost = cost_top(stacks->stack_a, target);
 	b_cost = cost_top(stacks->stack_b, item);
-	execute_rotation(stacks, a_cost, b_cost);
+	ex_rotation(stacks, a_cost, b_cost);
 	pa(stacks);
 }

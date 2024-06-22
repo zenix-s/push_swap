@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_bool	is_invalid_arg(const char* str)
+t_bool	is_invalid_arg(const char *str)
 {
 	int	i;
 

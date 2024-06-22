@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_item	*find_target(const t_stack* stack, const int value)
+t_item	*find_target(const t_stack *stack, const int value)
 {
 	t_item	*closest;
 	int		item_value;

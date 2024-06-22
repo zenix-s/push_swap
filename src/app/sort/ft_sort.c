@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-static void	pre_sort(t_stacks *stacks, t_sort_data *data)
+static void	pre_sort(const t_stacks *stacks, t_sort_data *data)
 {
 	t_item	*item;
 

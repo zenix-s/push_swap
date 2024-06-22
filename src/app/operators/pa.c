@@ -16,7 +16,7 @@
  * Pushes the top element of stack b to stack a.
  *
  */
-void	pa(const t_stacks* stacks)
+void	pa(const t_stacks *stacks)
 {
 	int	b_value;
 

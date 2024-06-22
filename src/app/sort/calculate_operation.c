@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-int	calculate_operation(const t_stacks* stacks, const t_item *item)
+int	calculate_operation(const t_stacks *stacks, const t_item *item)
 {
 	int		total_cost;
 	t_item	*closest;
