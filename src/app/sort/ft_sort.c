@@ -32,7 +32,7 @@ static void	pre_sort(const t_stacks *stacks, t_sort_data *data)
 	}
 }
 
-static void	operation_return(t_stacks *stacks)
+static void	operation_return(const t_stacks *stacks)
 {
 	int		i;
 	t_item	*item;
