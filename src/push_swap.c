@@ -19,11 +19,10 @@ int	main(const int argc, char **argv)
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		return (1);
-	init_stack('a', 0, &stacks->stack_a);
-	load_stack(stacks, argc, argv);
-	if (init_stack('b', stacks->stack_a->size, &stacks->stack_b) == FALSE)
+	if (!init_stack('a', 0, &stacks->stack_a))
 		return (end_program(stacks), 1);
-	if (stacks->stack_b == NULL)
+	load_stack(stacks, argc, argv);
+	if (!init_stack('b', stacks->stack_a->size, &stacks->stack_b))
 		return (end_program(stacks), 1);
 	if (is_sorted(stacks->stack_a))
 		return (end_program(stacks), (0));
