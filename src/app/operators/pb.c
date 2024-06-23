@@ -18,7 +18,7 @@ void	pb(const t_stacks *stacks)
 
 	if (stacks->stack_a->size == 0)
 		return ;
-	a_value = stacks->stack_a->stack[stacks->stack_a->size - 1]->value;
+	a_value = stacks->stack_a->items[stacks->stack_a->size - 1]->value;
 	push_stack(stacks->stack_b, a_value);
 	pop_stack(stacks->stack_a);
 	ft_putstr_fd("pb\n", 1);

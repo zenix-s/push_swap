@@ -18,11 +18,11 @@ t_item	*find_min(const t_stack *stack)
 	int		i;
 
 	i = 0;
-	min = stack->stack[0];
+	min = stack->items[0];
 	while (i < stack->size)
 	{
-		if (stack->stack[i]->value < min->value)
-			min = stack->stack[i];
+		if (stack->items[i]->value < min->value)
+			min = stack->items[i];
 		i++;
 	}
 	return (min);

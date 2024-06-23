@@ -23,12 +23,12 @@ void	reverse_rotate_stack(const t_stack *stack)
 
 	if (stack->size < 2)
 		return ;
-	tmp = stack->stack[0]->value;
+	tmp = stack->items[0]->value;
 	i = 0;
 	while (i < stack->size - 1)
 	{
-		stack->stack[i]->value = stack->stack[i + 1]->value;
+		stack->items[i]->value = stack->items[i + 1]->value;
 		i++;
 	}
-	stack->stack[stack->size - 1]->value = tmp;
+	stack->items[stack->size - 1]->value = tmp;
 }

@@ -23,12 +23,12 @@ void	rotate_stack(const t_stack *stack)
 
 	if (stack->size < 2)
 		return ;
-	tmp = stack->stack[stack->size - 1]->value;
+	tmp = stack->items[stack->size - 1]->value;
 	i = stack->size - 1;
 	while (i > 0)
 	{
-		stack->stack[i]->value = stack->stack[i - 1]->value;
+		stack->items[i]->value = stack->items[i - 1]->value;
 		i--;
 	}
-	stack->stack[0]->value = tmp;
+	stack->items[0]->value = tmp;
 }

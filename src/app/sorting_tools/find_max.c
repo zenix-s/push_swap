@@ -19,11 +19,11 @@ t_item	*find_max(const t_stack *stack)
 	int		i;
 
 	i = 0;
-	max = stack->stack[0];
+	max = stack->items[0];
 	while (i < stack->size)
 	{
-		if (stack->stack[i]->value > max->value)
-			max = stack->stack[i];
+		if (stack->items[i]->value > max->value)
+			max = stack->items[i];
 		i++;
 	}
 	return (max);

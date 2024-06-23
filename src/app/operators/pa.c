@@ -22,7 +22,7 @@ void	pa(const t_stacks *stacks)
 
 	if (stacks->stack_b->size == 0)
 		return ;
-	b_value = stacks->stack_b->stack[stacks->stack_b->size - 1]->value;
+	b_value = stacks->stack_b->items[stacks->stack_b->size - 1]->value;
 	push_stack(stacks->stack_a, b_value);
 	pop_stack(stacks->stack_b);
 	ft_putstr_fd("pa\n", 1);

@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:36 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/22 20:15:27 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/22 23:11:07 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	main(const int argc, char **argv)
 {
 	t_stacks	*stacks;
 
+	if (argc <= 1)
+		return (ft_putstr_fd("Error\n", 2), 1);
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		return (1);
-	if (!init_stack('a', 0, &stacks->stack_a))
-		return (end_program(stacks), 1);
+	init_stack('a', 0, &stacks->stack_a);
 	load_stack(stacks, argc, argv);
 	if (!init_stack('b', stacks->stack_a->size, &stacks->stack_b))
 		return (end_program(stacks), 1);

@@ -22,7 +22,7 @@ t_bool	is_sorted(const t_stack *stack)
 	index = 0;
 	while (index < stack->size - 1)
 	{
-		if (stack->stack[index]->value < stack->stack[index + 1]->value)
+		if (stack->items[index]->value < stack->items[index + 1]->value)
 			return (FALSE);
 		index++;
 	}

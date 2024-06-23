@@ -22,7 +22,7 @@ void	swap_stack(const t_stack *stack)
 
 	if (stack->size < 2)
 		return ;
-	tmp = stack->stack[stack->size - 1]->value;
-	stack->stack[stack->size - 1]->value = stack->stack[stack->size - 2]->value;
-	stack->stack[stack->size - 2]->value = tmp;
+	tmp = stack->items[stack->size - 1]->value;
+	stack->items[stack->size - 1]->value = stack->items[stack->size - 2]->value;
+	stack->items[stack->size - 2]->value = tmp;
 }

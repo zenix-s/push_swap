@@ -19,7 +19,7 @@
  */
 void	push_stack(t_stack *stack, const int element)
 {
-	stack->stack[stack->size]->index = stack->size;
-	stack->stack[stack->size]->value = element;
+	stack->items[stack->size]->index = stack->size;
+	stack->items[stack->size]->value = element;
 	stack->size++;
 }

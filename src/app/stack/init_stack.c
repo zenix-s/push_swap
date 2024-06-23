@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/22 20:19:57 by serferna         ###   ########.fr       */
+/*   Updated: 2024/06/22 22:55:14 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,41 @@
 
 #include "../../push_swap.h"
 
-t_bool	init_stack(const char id, int stack_size, t_stack **stack)
+static void	init_fail(t_stack **stack, int stack_size)
+{
+	while (stack_size <= (*stack)->allocated)
+	{
+		free((*stack)->items[stack_size - 1]);
+		stack_size++;
+	}
+	free((*stack)->items);
+	free(*stack);
+	*stack = NULL;
+}
+
+t_bool	init_stack(const char id, int size, t_stack **stack)
 {
 	t_item	**items;
 
 	*stack = (t_stack *)malloc(sizeof(t_stack));
 	(*stack)->size = 0;
 	(*stack)->allocated = 0;
-	if (stack_size <= 0)
-		(*stack)->stack = NULL;
+	(*stack)->id = id;
+	if (size <= 0)
+		(*stack)->items = NULL;
 	else
 	{
-		items = (t_item **)malloc(stack_size * sizeof(t_item *));
-		(*stack)->allocated = stack_size;
-		while (stack_size > 0)
+		items = (t_item **)malloc(size * sizeof(t_item *));
+		(*stack)->allocated = size;
+		while (size > 0)
 		{
-			items[stack_size - 1] = (t_item *)malloc(sizeof(t_item));
-			if (items[stack_size - 1] == NULL || stack_size == 450)
-				return ((*stack)->stack = items, FALSE);
-			items[stack_size - 1]->index = -1;
-			stack_size--;
+			items[size - 1] = (t_item *)malloc(sizeof(t_item));
+			if (items[size - 1] == NULL)
+				return ((*stack)->items = items, init_fail(stack, size), FALSE);
+			items[size - 1]->index = -1;
+			size--;
 		}
-		(*stack)->stack = items;
+		(*stack)->items = items;
 	}
-	(*stack)->id = id;
 	return (TRUE);
 }

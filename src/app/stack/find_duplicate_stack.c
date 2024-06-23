@@ -19,7 +19,7 @@ t_bool	find_dup(const t_stack *stack, const int item)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (stack->stack[i]->value == item)
+		if (stack->items[i]->value == item)
 			return (TRUE);
 		i++;
 	}

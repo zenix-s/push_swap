@@ -23,7 +23,7 @@ int	*bubble_sort_init_stack(t_stacks *stacks)
 	i = 0;
 	while (i < stacks->stack_a->size)
 	{
-		sorted[i] = stacks->stack_a->stack[i]->value;
+		sorted[i] = stacks->stack_a->items[i]->value;
 		i++;
 	}
 	return (bubble_sort(sorted, stacks->stack_a->size));

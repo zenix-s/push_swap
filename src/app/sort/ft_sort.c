@@ -18,13 +18,13 @@ static void	pre_sort(const t_stacks *stacks, t_sort_data *data)
 
 	while (data->size)
 	{
-		item = stacks->stack_a->stack[stacks->stack_a->size - 1];
+		item = stacks->stack_a->items[stacks->stack_a->size - 1];
 		if (is_big_five(data, item->value))
 			ra(stacks);
 		else
 		{
 			pb(stacks);
-			item = stacks->stack_b->stack[stacks->stack_b->size - 1];
+			item = stacks->stack_b->items[stacks->stack_b->size - 1];
 			if (item->value > data->pivot && stacks->stack_b->size > 2)
 				rb(stacks);
 		}
@@ -42,13 +42,13 @@ static void	operation_return(const t_stacks *stacks)
 	while (stacks->stack_b->size)
 	{
 		i = 0;
-		item = stacks->stack_b->stack[0];
+		item = stacks->stack_b->items[0];
 		while (i < stacks->stack_b->size)
 		{
-			b_ops = calculate_operation(stacks, stacks->stack_b->stack[i]);
+			b_ops = calculate_operation(stacks, stacks->stack_b->items[i]);
 			item_ops = calculate_operation(stacks, item);
 			if (b_ops < item_ops)
-				item = stacks->stack_b->stack[i];
+				item = stacks->stack_b->items[i];
 			i++;
 		}
 		push_to_target(stacks, item);

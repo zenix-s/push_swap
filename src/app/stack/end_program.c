@@ -14,24 +14,18 @@
 
 void	free_stack(t_stack *stack)
 {
-	if (stack == NULL)
-		return ;
 	while (stack->allocated > 0)
 	{
-		if (stack->stack[stack->allocated - 1] == NULL)
-			continue ;
-		free(stack->stack[stack->allocated - 1]);
+		free(stack->items[stack->allocated - 1]);
 		stack->allocated--;
 	}
-	free(stack->stack);
+	free(stack->items);
 	free(stack);
 }
 
 // Función para finalizar el programa y liberar toda la memoria
 void	end_program(t_stacks *stacks)
 {
-	if (stacks == NULL)
-		return ;
 	free_stack(stacks->stack_a);
 	free_stack(stacks->stack_b);
 	free(stacks);

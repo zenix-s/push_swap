@@ -28,7 +28,7 @@ typedef struct s_stack
 {
 	char		id;
 	int			size;
-	t_item		**stack;
+	t_item		**items;
 	int			allocated;
 }				t_stack;
 
@@ -69,7 +69,7 @@ void			free_stack(t_stack *stack);
 void			error(t_stacks *stacks);
 
 // Stack
-t_bool			init_stack(const char id, int stack_size, t_stack **stack);
+t_bool			init_stack(const char id, int size, t_stack **stack);
 t_bool			find_dup(const t_stack *stack, int item);
 
 // Parse arguments

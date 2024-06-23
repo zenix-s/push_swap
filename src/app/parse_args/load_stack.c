@@ -3,37 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   load_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: serferna <serferna@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:31 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 20:33:20 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/23 22:48:03 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static void	add_arg(t_stack *stack, const int element)
+static t_bool	init_item(t_item **stack, const int i, const int value,
+	const int index)
 {
-	t_item	**new_stack;
+	stack[i] = (t_item *)malloc(sizeof(t_item));
+	if (stack[i] == NULL)
+		return (FALSE);
+	stack[i]->value = value;
+	stack[i]->index = index;
+	return (TRUE);
+}
+
+static void add_arg_fail(t_item **items, int i)
+{
+	while (--i >= 0)
+	{
+		free(items[i]);
+	}
+	free(items);
+}
+
+static t_bool	add_arg(t_stack *stack, const int element)
+{
+	t_item	**items;
 	int		i;
 
-	new_stack = (t_item **)malloc((stack->size + 1) * sizeof(t_item *));
+	items = (t_item **)malloc((stack->size + 1) * sizeof(t_item *));
+	if (items == NULL)
+		return (FALSE);
 	i = 0;
 	while (i < stack->size)
 	{
-		new_stack[i] = (t_item *)malloc(sizeof(t_item));
-		new_stack[i]->value = stack->stack[i]->value;
-		new_stack[i]->index = stack->stack[i]->index;
-		free(stack->stack[i]);
+		if (!init_item(items, i, stack->items[i]->value, stack->items[i]->index))
+			return (add_arg_fail(items, i) ,FALSE);
+		free(stack->items[i]);
 		i++;
 	}
-	new_stack[i] = (t_item *)malloc(sizeof(t_item));
-	new_stack[i]->value = element;
-	new_stack[i]->index = i;
-	free(stack->stack);
-	stack->stack = new_stack;
+	if (!init_item(items, i, element, i))
+		return (add_arg_fail(items, i), FALSE);
+	free(stack->items);
+	stack->items = items;
 	stack->size++;
 	stack->allocated++;
+	return (TRUE);
+}
+
+static void	chunk_error(char **chunk, int chunk_size, t_stacks *stacks)
+{
+	while (chunk_size >= 0)
+	{
+		free(chunk[chunk_size]);
+		chunk_size--;
+	}
+	free(chunk);
+	free_stack(stacks->stack_a);
+	free(stacks);
+	exit(1);
 }
 
 void	load_stack(t_stacks *stacks, int argc, char **argv)
@@ -42,8 +76,6 @@ void	load_stack(t_stacks *stacks, int argc, char **argv)
 	char	**chunk;
 	int		chunk_size;
 
-	if (argc < 2)
-		error(stacks);
 	while (--argc > 0)
 	{
 		if (is_invalid_arg(argv[argc]))
@@ -52,13 +84,16 @@ void	load_stack(t_stacks *stacks, int argc, char **argv)
 		chunk_size = 0;
 		while (chunk[chunk_size])
 			chunk_size++;
+		if (chunk_size == 0)
+			return (free_stack(stacks->stack_a), free(stacks));
 		while (--chunk_size >= 0)
 		{
 			if (!process_item(chunk[chunk_size], &item))
-				return (free(chunk), error(stacks));
+				return (chunk_error(chunk, chunk_size, stacks));
 			if (find_dup(stacks->stack_a, item))
-				return (free(chunk), error(stacks));
-			add_arg(stacks->stack_a, item);
+				return (chunk_error(chunk, chunk_size, stacks));
+			if (!add_arg(stacks->stack_a, item))
+				return (chunk_error(chunk, chunk_size, stacks));
 			free(chunk[chunk_size]);
 		}
 		free(chunk);

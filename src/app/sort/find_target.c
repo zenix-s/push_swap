@@ -19,14 +19,14 @@ t_item	*find_target(const t_stack *stack, const int value)
 	int		i;
 
 	i = 0;
-	while (stack->stack[i]->value < value)
+	while (stack->items[i]->value < value)
 		i++;
-	closest = stack->stack[i];
+	closest = stack->items[i];
 	while (i < stack->size)
 	{
-		item_value = stack->stack[i]->value;
+		item_value = stack->items[i]->value;
 		if (item_value > value && item_value < closest->value)
-			closest = stack->stack[i];
+			closest = stack->items[i];
 		i++;
 	}
 	return (closest);

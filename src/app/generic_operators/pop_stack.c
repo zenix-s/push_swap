@@ -20,6 +20,6 @@ void	pop_stack(t_stack *stack)
 {
 	if (stack->size == 0)
 		return ;
-	stack->stack[stack->size - 1]->index = -1;
+	stack->items[stack->size - 1]->index = -1;
 	stack->size--;
 }
