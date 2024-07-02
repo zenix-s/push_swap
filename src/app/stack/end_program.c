@@ -30,7 +30,6 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-// Función para finalizar el programa y liberar toda la memoria
 void	end_program(t_stacks *stacks)
 {
 	free_stack(stacks->stack_a);
