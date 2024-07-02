@@ -14,7 +14,7 @@
 
 int	*bubble_sort_init_stack(t_stacks *stacks)
 {
-	int	sorted;
+	int	*sorted;
 	int	i;
 
 	sorted = malloc(sizeof(int) * stacks->stack_a->size);
