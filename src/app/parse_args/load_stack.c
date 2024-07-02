@@ -6,14 +6,14 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/23 22:48:03 by serferna         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:29:24 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
 static t_bool	init_item(t_item **stack, const int i, const int value,
-	const int index)
+		const int index)
 {
 	stack[i] = (t_item *)malloc(sizeof(t_item));
 	if (stack[i] == NULL)
@@ -23,7 +23,7 @@ static t_bool	init_item(t_item **stack, const int i, const int value,
 	return (TRUE);
 }
 
-static void add_arg_fail(t_item **items, int i)
+static void	add_arg_fail(t_item **items, int i)
 {
 	while (--i >= 0)
 	{
@@ -43,8 +43,9 @@ static t_bool	add_arg(t_stack *stack, const int element)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (!init_item(items, i, stack->items[i]->value, stack->items[i]->index))
-			return (add_arg_fail(items, i) ,FALSE);
+		if (!init_item(items, i, stack->items[i]->value,
+				stack->items[i]->index))
+			return (add_arg_fail(items, i), FALSE);
 		free(stack->items[i]);
 		i++;
 	}
@@ -57,7 +58,7 @@ static t_bool	add_arg(t_stack *stack, const int element)
 	return (TRUE);
 }
 
-static void	chunk_error(char **chunk, int chunk_size, t_stacks *stacks)
+static void	chunk_error(char **chunk, int chunk_size, t_stack *stack)
 {
 	while (chunk_size >= 0)
 	{
@@ -65,37 +66,34 @@ static void	chunk_error(char **chunk, int chunk_size, t_stacks *stacks)
 		chunk_size--;
 	}
 	free(chunk);
-	free_stack(stacks->stack_a);
-	free(stacks);
-	exit(1);
+	free_stack(stack);
 }
 
-void	load_stack(t_stacks *stacks, int argc, char **argv)
+t_bool	load_stack(t_stack *stack, int argc, char **argv)
 {
 	int		item;
 	char	**chunk;
-	int		chunk_size;
+	int		size;
 
 	while (--argc > 0)
 	{
 		if (is_invalid_arg(argv[argc]))
-			error(stacks);
+			return (free_stack(stack), FALSE);
 		chunk = ft_split(argv[argc], ' ');
-		chunk_size = 0;
-		while (chunk[chunk_size])
-			chunk_size++;
-		if (chunk_size == 0)
-			return (free_stack(stacks->stack_a), free(stacks));
-		while (--chunk_size >= 0)
+		size = 0;
+		while (chunk[size])
+			size++;
+		if (size == 0)
+			return (free_stack(stack), FALSE);
+		while (--size >= 0)
 		{
-			if (!process_item(chunk[chunk_size], &item))
-				return (chunk_error(chunk, chunk_size, stacks));
-			if (find_dup(stacks->stack_a, item))
-				return (chunk_error(chunk, chunk_size, stacks));
-			if (!add_arg(stacks->stack_a, item))
-				return (chunk_error(chunk, chunk_size, stacks));
-			free(chunk[chunk_size]);
+			if (!process_item(chunk[size], &item) || find_dup(stack, item))
+				return (chunk_error(chunk, size, stack), FALSE);
+			if (!add_arg(stack, item))
+				return (chunk_error(chunk, size, stack), FALSE);
+			free(chunk[size]);
 		}
 		free(chunk);
 	}
+	return (TRUE);
 }

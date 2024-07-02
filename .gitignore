@@ -7,3 +7,4 @@ Push-Swap-Tester
 traces.txt
 .vscode
 .idea
+*.o

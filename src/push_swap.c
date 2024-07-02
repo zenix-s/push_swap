@@ -6,27 +6,14 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:36 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/22 23:11:07 by serferna         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:49:09 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(const int argc, char **argv)
+void	switch_sort(t_stacks *stacks)
 {
-	t_stacks	*stacks;
-
-	if (argc <= 1)
-		return (ft_putstr_fd("Error\n", 2), 1);
-	stacks = (t_stacks *)malloc(sizeof(t_stacks));
-	if (stacks == NULL)
-		return (1);
-	init_stack('a', 0, &stacks->stack_a);
-	load_stack(stacks, argc, argv);
-	if (!init_stack('b', stacks->stack_a->size, &stacks->stack_b))
-		return (end_program(stacks), 1);
-	if (is_sorted(stacks->stack_a))
-		return (end_program(stacks), (0));
 	if (stacks->stack_a->size == 2)
 		sort_two(stacks);
 	else if (stacks->stack_a->size == 3)
@@ -37,6 +24,26 @@ int	main(const int argc, char **argv)
 		sort_five(stacks);
 	else
 		ft_sort(stacks);
+}
+
+int	main(const int argc, char **argv)
+{
+	t_stacks	*stacks;
+
+	if (argc <= 1)
+		return (1);
+	stacks = (t_stacks *)malloc(sizeof(t_stacks));
+	if (stacks == NULL)
+		return (print_error(), 1);
+	if (!init_stack('a', 0, &stacks->stack_a))
+		return (free(stacks), print_error(), 1);
+	if (!load_stack(stacks->stack_a, argc, argv))
+		return (free(stacks), print_error(), 1);
+	if (is_sorted(stacks->stack_a))
+		return (free_stack(stacks->stack_a), free(stacks), 0);
+	if (!init_stack('b', stacks->stack_a->size, &stacks->stack_b))
+		return (free_stack(stacks->stack_a), print_error(), free(stacks), 1);
+	switch_sort(stacks);
 	end_program(stacks);
 	return (0);
 }

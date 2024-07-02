@@ -23,7 +23,7 @@ static void	calculate_cost(const t_stack *stack, const t_item *item,
  * Moves the item to the top of the stack
  *
  */
-void	top_item(const t_stacks *stacks, const char id,	const t_item *item)
+void	top_item(const t_stacks *stacks, const char id, const t_item *item)
 {
 	int	cost_up;
 	int	cost_down;

@@ -12,14 +12,21 @@
 
 #include "../../push_swap.h"
 
-void	free_stack(t_stack *stack)
+void	free_items(t_stack *stack)
 {
+	if (stack->allocated <= 0)
+		return ;
 	while (stack->allocated > 0)
 	{
 		free(stack->items[stack->allocated - 1]);
 		stack->allocated--;
 	}
 	free(stack->items);
+}
+
+void	free_stack(t_stack *stack)
+{
+	free_items(stack);
 	free(stack);
 }
 

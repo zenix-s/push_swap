@@ -6,7 +6,7 @@
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/22 20:04:32 by serferna         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:59:28 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void			free_stack(t_stack *stack);
 
 // Error handling
 void			error(t_stacks *stacks);
+void			print_error();
 
 // Stack
 t_bool			init_stack(const char id, int size, t_stack **stack);
@@ -75,7 +76,7 @@ t_bool			find_dup(const t_stack *stack, int item);
 // Parse arguments
 t_bool			is_invalid_arg(const char *str);
 t_bool			process_item(const char *str, int *item);
-void			load_stack(t_stacks *stacks, int argc, char **argv);
+t_bool 			load_stack(t_stack *stack, int argc, char **argv);
 
 // Stack generic operators
 void			pop_stack(t_stack *stack);

@@ -39,8 +39,8 @@ t_bool	process_item(const char *str, int *item)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		value = (value * 10) + (str[i] - '0');
-		if ((sign == 1 && value > INT_MAX)
-			|| (sign == -1 && value > (long long)INT_MAX + 1))
+		if ((sign == 1 && value > INT_MAX) || (sign == -1
+				&& value > (long long)INT_MAX + 1))
 			return (FALSE);
 		i++;
 	}
