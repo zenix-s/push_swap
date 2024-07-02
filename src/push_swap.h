@@ -67,7 +67,7 @@ void			free_stack(t_stack *stack);
 
 // Error handling
 void			error(t_stacks *stacks);
-void			print_error();
+void			print_error(void);
 
 // Stack
 t_bool			init_stack(const char id, int size, t_stack **stack);
@@ -76,7 +76,7 @@ t_bool			find_dup(const t_stack *stack, int item);
 // Parse arguments
 t_bool			is_invalid_arg(const char *str);
 t_bool			process_item(const char *str, int *item);
-t_bool 			load_stack(t_stack *stack, int argc, char **argv);
+t_bool			load_stack(t_stack *stack, int argc, char **argv);
 
 // Stack generic operators
 void			pop_stack(t_stack *stack);
