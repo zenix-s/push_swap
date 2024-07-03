@@ -42,14 +42,12 @@ int	*bubble_sort(int *stack, const int size)
 {
 	int	i;
 	int	j;
-	int	n;
 
-	n = size;
 	i = 0;
-	while (i < n - 1)
+	while (i < size - 1)
 	{
 		j = 0;
-		while (j < n - i - 1)
+		while (j < size - i - 1)
 		{
 			if (stack[j] > stack[j + 1])
 				swap(&stack[j], &stack[j + 1]);
