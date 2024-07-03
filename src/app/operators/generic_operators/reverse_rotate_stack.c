@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_target.c                                      :+:      :+:    :+:   */
+/*   reverse_rotate_stack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 23:12:04 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 20:33:48 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/14 17:35:00 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/19 14:57:37 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
-t_item	*find_target(const t_stack *stack, const int value)
+/**
+ * Reverses the stack. The last element becomes the first, the second to last
+ * @param stack Pointer to the stack.
+ */
+void	reverse_rotate_stack(const t_stack *stack)
 {
-	t_item	*closest;
-	int		item_value;
-	int		i;
+	int	tmp;
+	int	i;
 
+	if (stack->size < 2)
+		return ;
+	tmp = stack->items[0]->value;
 	i = 0;
-	while (stack->items[i]->value < value)
-		i++;
-	closest = stack->items[i];
-	while (i < stack->size)
+	while (i < stack->size - 1)
 	{
-		item_value = stack->items[i]->value;
-		if (item_value > value && item_value < closest->value)
-			closest = stack->items[i];
+		stack->items[i]->value = stack->items[i + 1]->value;
 		i++;
 	}
-	return (closest);
+	stack->items[stack->size - 1]->value = tmp;
 }

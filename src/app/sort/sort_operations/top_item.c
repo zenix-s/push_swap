@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 static void	calculate_cost(const t_stack *stack, const t_item *item,
 		int *cost_up, int *cost_down)

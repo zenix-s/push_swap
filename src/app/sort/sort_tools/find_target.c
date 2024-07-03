@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_cost.c                                   :+:      :+:    :+:   */
+/*   find_target.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/17 23:54:00 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 15:14:52 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/18 23:12:04 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/19 20:33:48 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
-t_cost	cost_top(const t_stack *stack, const t_item *item)
+t_item	*find_target(const t_stack *stack, const int value)
 {
-	t_cost	cost;
-	int		cost_up;
-	int		cost_down;
+	t_item	*closest;
+	int		item_value;
+	int		i;
 
-	cost_up = (stack->size - 1) - item->index;
-	cost_down = item->index + 1;
-	if (cost_up <= cost_down)
+	i = 0;
+	while (stack->items[i]->value < value)
+		i++;
+	closest = stack->items[i];
+	while (i < stack->size)
 	{
-		cost.cost = cost_up;
-		cost.direction = UP;
-		return (cost);
+		item_value = stack->items[i]->value;
+		if (item_value > value && item_value < closest->value)
+			closest = stack->items[i];
+		i++;
 	}
-	cost.cost = cost_down;
-	cost.direction = DOWN;
-	return (cost);
+	return (closest);
 }

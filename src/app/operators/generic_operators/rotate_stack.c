@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_max.c                                         :+:      :+:    :+:   */
+/*   rotate_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/17 18:48:03 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 15:21:39 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/14 17:35:03 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/19 14:57:54 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
-// Find the max item in the stack
-t_item	*find_max(const t_stack *stack)
+/**
+ * Rotates the stack. The top element becomes the bottom element.
+ * @param stack Pointer to the stack.
+ */
+void	rotate_stack(const t_stack *stack)
 {
-	t_item	*max;
-	int		i;
+	int	tmp;
+	int	i;
 
-	i = 0;
-	max = stack->items[0];
-	while (i < stack->size)
+	if (stack->size < 2)
+		return ;
+	tmp = stack->items[stack->size - 1]->value;
+	i = stack->size - 1;
+	while (i > 0)
 	{
-		if (stack->items[i]->value > max->value)
-			max = stack->items[i];
-		i++;
+		stack->items[i]->value = stack->items[i - 1]->value;
+		i--;
 	}
-	return (max);
+	stack->items[0]->value = tmp;
 }

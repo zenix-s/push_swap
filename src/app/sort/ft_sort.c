@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-static void	pre_sort(const t_stacks *stacks, t_sort_data *data)
+static void	preliminary_sort(const t_stacks *stacks, t_sort_data *data)
 {
 	t_item	*item;
 
@@ -32,7 +32,7 @@ static void	pre_sort(const t_stacks *stacks, t_sort_data *data)
 	}
 }
 
-static void	operation_return(const t_stacks *stacks)
+static void	return_sort(const t_stacks *stacks)
 {
 	int		i;
 	t_item	*item;
@@ -60,12 +60,12 @@ int	ft_sort(t_stacks *stacks)
 	t_sort_data	*data;
 
 	data = init_sort_data(stacks);
-	pre_sort(stacks, data);
+	preliminary_sort(stacks, data);
 	if (stacks->stack_a->size == 5)
 		sort_five(stacks);
 	if (stacks->stack_a->size == 4)
 		sort_four(stacks);
-	operation_return(stacks);
+	return_sort(stacks);
 	top_item(stacks, 'a', find_min(stacks->stack_a));
 	free(data);
 	return (0);

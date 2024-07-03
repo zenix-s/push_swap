@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 static void	ex_rotation(const t_stacks *stacks, t_cost a_cost, t_cost b_cost)
 {

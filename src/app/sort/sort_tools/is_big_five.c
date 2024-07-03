@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_stack.c                                       :+:      :+:    :+:   */
+/*   is_big_five.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:04 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 14:58:14 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/18 23:10:02 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/18 23:10:05 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
-/**
- * Swaps the top two elements of the stack.
- * @param stack Pointer to the stack.
- */
-void	swap_stack(const t_stack *stack)
+t_bool	is_big_five(const t_sort_data *data, const int value)
 {
-	int	tmp;
-
-	if (stack->size < 2)
-		return ;
-	tmp = stack->items[stack->size - 1]->value;
-	stack->items[stack->size - 1]->value = stack->items[stack->size - 2]->value;
-	stack->items[stack->size - 2]->value = tmp;
+	if (value == data->max_1 || value == data->max_2 || value == data->max_3
+		|| value == data->max_4 || value == data->max_5)
+		return (TRUE);
+	return (FALSE);
 }

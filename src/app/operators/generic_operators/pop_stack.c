@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_stack.c                                     :+:      :+:    :+:   */
+/*   pop_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:35:03 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 14:57:54 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/14 17:34:55 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/19 20:28:40 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 /**
- * Rotates the stack. The top element becomes the bottom element.
+ * Pops the top element of the stack.
  * @param stack Pointer to the stack.
  */
-void	rotate_stack(const t_stack *stack)
+void	pop_stack(t_stack *stack)
 {
-	int	tmp;
-	int	i;
-
-	if (stack->size < 2)
+	if (stack->size == 0)
 		return ;
-	tmp = stack->items[stack->size - 1]->value;
-	i = stack->size - 1;
-	while (i > 0)
-	{
-		stack->items[i]->value = stack->items[i - 1]->value;
-		i--;
-	}
-	stack->items[0]->value = tmp;
+	stack->items[stack->size - 1]->index = -1;
+	stack->size--;
 }

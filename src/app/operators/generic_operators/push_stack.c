@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_min.c                                         :+:      :+:    :+:   */
+/*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/17 18:11:20 by serferna          #+#    #+#             */
-/*   Updated: 2024/06/19 15:17:24 by serferna         ###   ########.fr       */
+/*   Created: 2024/06/14 17:34:57 by serferna          #+#    #+#             */
+/*   Updated: 2024/06/19 20:28:45 by serferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
-t_item	*find_min(const t_stack *stack)
+/**
+ * Pushes the top element of stack b to stack a.
+ * @param stack Pointer to the stack.
+ * @param element Element to push.
+ */
+void	push_stack(t_stack *stack, const int element)
 {
-	t_item	*min;
-	int		i;
-
-	i = 0;
-	min = stack->items[0];
-	while (i < stack->size)
-	{
-		if (stack->items[i]->value < min->value)
-			min = stack->items[i];
-		i++;
-	}
-	return (min);
+	stack->items[stack->size]->index = stack->size;
+	stack->items[stack->size]->value = element;
+	stack->size++;
 }
