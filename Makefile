@@ -58,7 +58,7 @@ NAME = push_swap
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
 $(LIBFT):
-	@$(MAKE) -s all -C $(LIBFT_SRC) > /dev/null
+	@$(MAKE) -s all -C $(LIBFT_SRC)
 	@echo "Libft compiled"
 
 $(NAME): $(LIBFT) $(OBJ)
