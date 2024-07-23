@@ -3,18 +3,6 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: serferna <serferna@student.42madrid.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 21:24:18 by serferna          #+#    #+#             */
-/*   Updated: 2024/07/02 14:51:45 by serferna         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
 /*   By: serferna <serferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:35:29 by serferna          #+#    #+#             */
@@ -45,9 +33,9 @@ t_bool	init_stack(const char id, int size, t_stack **stack)
 		return (FALSE);
 	(*stack)->id = id;
 	(*stack)->size = 0;
-	if (size <= 0)
-		return ((*stack)->allocated = 0, (*stack)->items = NULL, TRUE);
 	(*stack)->allocated = size;
+	if (size <= 0)
+		return ((*stack)->items = NULL, TRUE);
 	items = (t_item **)malloc(size * sizeof(t_item *));
 	if (items == NULL)
 		return (FALSE);
