@@ -22,19 +22,13 @@ int	calculate_operation(const t_stacks *stacks, const t_item *item)
 	closest = find_target(stacks->stack_a, item->value);
 	a_cost = cost_top(stacks->stack_a, closest);
 	b_cost = cost_top(stacks->stack_b, item);
-	if (a_cost.direction == UP && b_cost.direction == UP)
+	if ((a_cost.direction == UP && b_cost.direction == UP)
+		|| (a_cost.direction == DOWN && b_cost.direction == DOWN))
 	{
 		if (a_cost.cost <= b_cost.cost)
 			total_cost = b_cost.cost;
 		else
 			total_cost = a_cost.cost;
-	}
-	else if (a_cost.direction == DOWN && b_cost.direction == DOWN)
-	{
-		if (a_cost.cost > b_cost.cost)
-			total_cost = a_cost.cost;
-		else
-			total_cost = b_cost.cost;
 	}
 	else
 		total_cost = a_cost.cost + b_cost.cost;

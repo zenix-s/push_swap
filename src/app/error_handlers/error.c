@@ -12,15 +12,15 @@
 
 #include "../../push_swap.h"
 
+void	print_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+}
+
 void	error(t_stacks *stacks)
 {
 	if (stacks != NULL)
 		end_program(stacks);
-	ft_putstr_fd("Error\n", 2);
+	print_error();
 	exit(1);
-}
-
-void	print_error(void)
-{
-	ft_putstr_fd("Error\n", 2);
 }

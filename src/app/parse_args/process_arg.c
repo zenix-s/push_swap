@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-t_bool	check_sign(const char *str, int *sign, int *i)
+static t_bool	process_sign(const char *str, int *sign, int *i)
 {
 	if (str[*i] == '-' || str[*i] == '+')
 	{
@@ -25,6 +25,15 @@ t_bool	check_sign(const char *str, int *sign, int *i)
 	return (TRUE);
 }
 
+static t_bool	is_overflow(int sign, long long value)
+{
+	if ((sign == 1 && value > INT_MAX))
+		return (TRUE);
+	else if (sign == -1 && value > (long long)INT_MAX + 1)
+		return (TRUE);
+	return (FALSE);
+}
+
 t_bool	process_item(const char *str, int *item)
 {
 	int			sign;
@@ -34,13 +43,12 @@ t_bool	process_item(const char *str, int *item)
 	i = 0;
 	value = 0;
 	sign = 1;
-	if (!check_sign(str, &sign, &i))
+	if (!process_sign(str, &sign, &i))
 		return (FALSE);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		value = (value * 10) + (str[i] - '0');
-		if ((sign == 1 && value > INT_MAX) || (sign == -1
-				&& value > (long long)INT_MAX + 1))
+		if (is_overflow(sign, value))
 			return (FALSE);
 		i++;
 	}

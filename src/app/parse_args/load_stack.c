@@ -12,14 +12,13 @@
 
 #include "../../push_swap.h"
 
-static t_bool	init_item(t_item **stack, const int i, const int value,
-		const int index)
+static t_bool	init_item(t_item **stack, const int value, const int index)
 {
-	stack[i] = (t_item *)malloc(sizeof(t_item));
-	if (stack[i] == NULL)
+	stack[index] = (t_item *)malloc(sizeof(t_item));
+	if (stack[index] == NULL)
 		return (FALSE);
-	stack[i]->value = value;
-	stack[i]->index = index;
+	stack[index]->value = value;
+	stack[index]->index = index;
 	return (TRUE);
 }
 
@@ -43,13 +42,10 @@ static t_bool	add_arg(t_stack *stack, const int element)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (!init_item(items, i, stack->items[i]->value,
-				stack->items[i]->index))
-			return (add_arg_fail(items, i), FALSE);
-		free(stack->items[i]);
+		items[i] = stack->items[i];
 		i++;
 	}
-	if (!init_item(items, i, element, i))
+	if (!init_item(items, element, stack->size))
 		return (add_arg_fail(items, i), FALSE);
 	free(stack->items);
 	stack->items = items;

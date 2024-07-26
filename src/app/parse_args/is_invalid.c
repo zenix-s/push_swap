@@ -12,6 +12,13 @@
 
 #include "../../push_swap.h"
 
+static t_bool	is_invalid_char(const char c)
+{
+	if (!ft_isdigit(c) && c != '-' && c != '+' && c != ' ' && c != '\0')
+		return (TRUE);
+	return (FALSE);
+}
+
 t_bool	is_invalid_arg(const char *str)
 {
 	int	i;
@@ -21,8 +28,7 @@ t_bool	is_invalid_arg(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) && str[i] != '-' && str[i] != '+'
-			&& str[i] != ' ')
+		if (is_invalid_char(str[i]))
 			return (TRUE);
 		i++;
 	}

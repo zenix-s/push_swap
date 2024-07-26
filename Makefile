@@ -63,6 +63,7 @@ libft:
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
+	@echo "push_swap compiled"
 
 all: libft $(NAME)
 
